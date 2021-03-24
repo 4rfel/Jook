@@ -12,16 +12,16 @@ public class PlayerMovement : NetworkedBehaviour {
     public float g = 10;
 
     float speed_mult = 5;
+    float max_speed = 10;
 
-    void Start()
-    {
+
+    void Start() {
         rb = GetComponent<Rigidbody2D>();
         hp = 100;
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         if (IsLocalPlayer)
         {
             MovePlayer();
@@ -31,6 +31,8 @@ public class PlayerMovement : NetworkedBehaviour {
     void MovePlayer() {
         Vector2 dir = new Vector2(Input.GetAxis("Horizontal"), 0f);
         dir = Vector2.ClampMagnitude(dir, 1f);
-        rb.velocity = dir * speed_mult;
+        rb.AddForce(dir * speed_mult);
+
+        rb.velocity = Vector2.ClampMagnitude(rb.velocity, max_speed);
     }
 }
