@@ -8,16 +8,19 @@ public class PlayerMovement : NetworkedBehaviour {
     Rigidbody2D rb;
 
     public float hp;
-
-    public float g = 10;
-
+    
     float speed_mult = 5;
     float max_speed = 10;
 
 
     void Start() {
-        rb = GetComponent<Rigidbody2D>();
-        hp = 100;
+        if (IsLocalPlayer)
+        {
+            
+            rb = GetComponent<Rigidbody2D>();
+            hp = 100;
+            MovePlayer();
+        }
     }
 
     // Update is called once per frame

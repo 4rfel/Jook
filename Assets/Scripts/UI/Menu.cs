@@ -2,19 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using MLAPI;
+using UnityEngine.SceneManagement;
+using MLAPI.SceneManagement;
 
 public class Menu : NetworkedBehaviour {
 
-    [SerializeField] private GameObject menu;
-
     public void Host() {
         NetworkingManager.Singleton.StartHost();
-        menu.SetActive(false);
+        //SceneManager.LoadScene("Game");
+        NetworkSceneManager.SwitchScene("Game");
     }
 
     public void Join() {
         NetworkingManager.Singleton.StartClient();
-        menu.SetActive(false);
+        NetworkSceneManager.SwitchScene("Game");
 
+        //SceneManager.LoadScene("Game");
     }
 }
