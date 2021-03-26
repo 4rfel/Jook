@@ -6,19 +6,15 @@ using MLAPI;
 public class PlayerMovement : NetworkedBehaviour {
 
     Rigidbody2D rb;
-
-    public float hp;
     
     float speed_mult = 5;
     float max_speed = 10;
-
 
     void Start() {
         if (IsLocalPlayer)
         {
             
             rb = GetComponent<Rigidbody2D>();
-            hp = 100;
             MovePlayer();
         }
     }

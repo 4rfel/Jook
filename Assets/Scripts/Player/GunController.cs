@@ -23,6 +23,7 @@ public class GunController : NetworkedBehaviour {
 
     private void Start() {
         em = bulletParticleSystem.emission;
+        bulletParticleSystem.Play();
     }
     void Update()
     {
@@ -55,8 +56,12 @@ public class GunController : NetworkedBehaviour {
 
     [ServerRPC]
     void Shoot() {
-        Ray ray = new Ray(bulletParticleSystem.transform.position, bulletParticleSystem.transform.forward);
-        if(Physics.Raycast(ray, out RaycastHit hit, 100f)) {
+        RaycastHit2D hit = Physics2D.Raycast(bulletParticleSystem.transform.position, bulletParticleSystem.transform.forward);
+        if (hit.collider != null) {
+            float distance = Mathf.Abs(hit.point.y - bulletParticleSystem.transform.position.y);
+            if (distance >= 100f)
+                return;
+
             var player = hit.collider.GetComponent<PlayerHp>();
             if (player != null)
             {
