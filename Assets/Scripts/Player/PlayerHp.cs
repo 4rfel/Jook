@@ -11,6 +11,5 @@ public class PlayerHp : MonoBehaviour
 
     public void TakeDmg(float dmg) {
         hp.Value -= dmg;
-        Debug.Log("hp" + hp.Value);
     }
 }

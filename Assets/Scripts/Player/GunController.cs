@@ -56,11 +56,8 @@ public class GunController : NetworkedBehaviour {
 
     [ServerRPC]
     void Shoot() {
-        RaycastHit2D hit = Physics2D.Raycast(bulletParticleSystem.transform.position, bulletParticleSystem.transform.forward);
+        RaycastHit2D hit = Physics2D.Raycast(bulletParticleSystem.transform.position, gunTransform.right, 25f);
         if (hit.collider != null) {
-            float distance = Mathf.Abs(hit.point.y - bulletParticleSystem.transform.position.y);
-            if (distance >= 100f)
-                return;
 
             var player = hit.collider.GetComponent<PlayerHp>();
             if (player != null)
@@ -68,5 +65,9 @@ public class GunController : NetworkedBehaviour {
                 player.TakeDmg(dmg);
             }
         }
+    }
+
+    private void OnDrawGizmos() {
+        Gizmos.DrawLine(bulletParticleSystem.transform.position, gunTransform.right * 25f);
     }
 }

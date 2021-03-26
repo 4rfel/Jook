@@ -9,6 +9,7 @@ public class PlayerMovement : NetworkedBehaviour {
     
     float speed_mult = 5;
     float max_speed = 10;
+    bool hasJumped = false;
 
     void Start() {
         if (IsLocalPlayer)
@@ -24,14 +25,23 @@ public class PlayerMovement : NetworkedBehaviour {
         if (IsLocalPlayer)
         {
             MovePlayer();
+            if(Input.GetKeyDown("space"))
+                Jump();
         }
     }
 
     void MovePlayer() {
         Vector2 dir = new Vector2(Input.GetAxis("Horizontal"), 0f);
-        dir = Vector2.ClampMagnitude(dir, 1f);
         rb.AddForce(dir * speed_mult);
 
         rb.velocity = Vector2.ClampMagnitude(rb.velocity, max_speed);
+    }
+
+    void Jump() {
+        if (!hasJumped)
+        {
+            rb.AddForce(Vector2.up * 10);
+            hasJumped = true;
+        }
     }
 }

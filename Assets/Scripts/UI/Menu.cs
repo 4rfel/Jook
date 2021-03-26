@@ -3,20 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using MLAPI;
 using UnityEngine.SceneManagement;
-using MLAPI.SceneManagement;
 
 public class Menu : NetworkedBehaviour {
 
+    [SerializeField] private GameObject menu;
+    [SerializeField] private GameObject camera;
+
+
     public void Host() {
         NetworkingManager.Singleton.StartHost();
-        //SceneManager.LoadScene("Game");
-        NetworkSceneManager.SwitchScene("Game");
+        menu.SetActive(false);
+        camera.SetActive(false);
+
     }
 
     public void Join() {
         NetworkingManager.Singleton.StartClient();
-        NetworkSceneManager.SwitchScene("Game");
+        menu.SetActive(false);
+        camera.SetActive(false);
 
-        //SceneManager.LoadScene("Game");
     }
 }
