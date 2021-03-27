@@ -66,8 +66,4 @@ public class GunController : NetworkedBehaviour {
             }
         }
     }
-
-    private void OnDrawGizmos() {
-        Gizmos.DrawLine(bulletParticleSystem.transform.position, gunTransform.right * 25f);
-    }
 }
