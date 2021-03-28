@@ -27,22 +27,18 @@ public class LightController : NetworkedBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (IsLocalPlayer)
-        {
-            isLightOn = Input.GetMouseButton(1);
+        if (IsLocalPlayer) {
+			isLightOn = Input.GetMouseButton(1);
         }
         if (wasLightOn != isLightOn)
             ChangeLightState();
     }
 
     void ChangeLightState() {
-        if (isLightOn)
-        {
-            spotlight.SetActive(true);
+        if (isLightOn) {
+			spotlight.SetActive(true);
             wasLightOn = true;
-        } 
-        else
-        {
+		} else {
             spotlight.SetActive(false);
             wasLightOn = false;
         }

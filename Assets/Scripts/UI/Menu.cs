@@ -1,26 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using MLAPI;
-using UnityEngine.SceneManagement;
 
 public class Menu : NetworkedBehaviour {
 
     [SerializeField] private GameObject menu;
-    [SerializeField] private GameObject camera;
-
+    [SerializeField] private GameObject cameraMenu;
 
     public void Host() {
         NetworkingManager.Singleton.StartHost();
         menu.SetActive(false);
-        camera.SetActive(false);
+        cameraMenu.SetActive(false);
 
-    }
+	}
 
-    public void Join() {
+	public void Join() {
         NetworkingManager.Singleton.StartClient();
         menu.SetActive(false);
-        camera.SetActive(false);
+        cameraMenu.SetActive(false);
 
     }
 }

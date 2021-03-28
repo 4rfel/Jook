@@ -15,7 +15,7 @@ public class GunController : NetworkedBehaviour {
     NetworkedVarBool shooting = new NetworkedVarBool(new NetworkedVarSettings { WritePermission = NetworkedVarPermission.OwnerOnly }, false);
 
     float fireRate = 10f;
-    float shootTimer = 0f;
+	float shootTimer = 0f;
 
     float dmg = 5;
 
@@ -60,9 +60,8 @@ public class GunController : NetworkedBehaviour {
         if (hit.collider != null) {
 
             var player = hit.collider.GetComponent<PlayerHp>();
-            if (player != null)
-            {
-                player.TakeDmg(dmg);
+            if (player != null) {
+				player.TakeDmg(dmg);
             }
         }
     }

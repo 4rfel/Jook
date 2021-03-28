@@ -548,6 +548,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a8563b2c86442340923adf225790773, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpMult: 1000
 --- !u!50 &2060760873221924013
 Rigidbody2D:
   serializedVersion: 4
@@ -563,7 +564,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 1
   m_AngularDrag: 1
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -804,6 +805,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8692443457230241697}
     m_Modifications:
+    - target: {fileID: 1669141294770795378, guid: 505dabda13f9eea43870708f1f906534,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1669141294770795378, guid: 505dabda13f9eea43870708f1f906534,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1669141294770795378, guid: 505dabda13f9eea43870708f1f906534,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1669141294770795378, guid: 505dabda13f9eea43870708f1f906534,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4480927225004980708, guid: 505dabda13f9eea43870708f1f906534,
         type: 3}
       propertyPath: m_Name
