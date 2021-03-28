@@ -6,13 +6,11 @@ using MLAPI;
 public class LightController : NetworkedBehaviour {
 
     [SerializeField] private GameObject spotlight;
-    [SerializeField] private Material material_dark;
-    [SerializeField] private Material material_light;
-    [SerializeField] private Renderer rend;
+    [SerializeField] private SpriteRenderer playerRend;
+    [SerializeField] private SpriteRenderer gunRend;
 
     private bool isLightOn;
     private bool wasLightOn;
-
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +19,8 @@ public class LightController : NetworkedBehaviour {
         {
             isLightOn = false;
             wasLightOn = false;
+            playerRend.maskInteraction = SpriteMaskInteraction.None;
+            gunRend.maskInteraction = SpriteMaskInteraction.None;
         }
         ChangeLightState();
     }
@@ -29,8 +29,7 @@ public class LightController : NetworkedBehaviour {
     void Update() {
         if (IsLocalPlayer)
         {
-            if (Input.GetMouseButton(1))
-                isLightOn = !isLightOn;
+            isLightOn = Input.GetMouseButton(1);
         }
         if (wasLightOn != isLightOn)
             ChangeLightState();
@@ -39,13 +38,11 @@ public class LightController : NetworkedBehaviour {
     void ChangeLightState() {
         if (isLightOn)
         {
-            rend.material = material_light;
             spotlight.SetActive(true);
             wasLightOn = true;
         } 
         else
         {
-            rend.material = material_dark;
             spotlight.SetActive(false);
             wasLightOn = false;
         }
