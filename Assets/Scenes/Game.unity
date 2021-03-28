@@ -337,7 +337,6 @@ MonoBehaviour:
     ProtocolVersion: 0
     NetworkTransport: {fileID: 920195011}
     RegisteredScenes:
-    - 
     - Game
     AllowRuntimeSceneChanges: 0
     NetworkedPrefabs:

@@ -8,9 +8,9 @@ public class PlayerMovement : NetworkedBehaviour {
 
     Rigidbody2D rb;
     
-    float speed_mult = 5f;
+    float speed_mult = 10f;
     float max_speed = 10f;
-    float jumpMult = 1000f;
+    float jumpMult = 500;
 
     bool hasJumped = false;
 
@@ -35,14 +35,14 @@ public class PlayerMovement : NetworkedBehaviour {
         Vector2 dir = new Vector2(Input.GetAxis("Horizontal"), 0f);
         rb.AddForce(dir * speed_mult);
 
-        rb.velocity = Vector2.ClampMagnitude(rb.velocity, max_speed);
+        rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -max_speed, max_speed), rb.velocity.y);
     }
 
     void Jump() {
         if (!hasJumped)
         {
             rb.AddForce(Vector2.up * jumpMult);
-            hasJumped = true;
+            //hasJumped = true;
         }
     }
 
@@ -54,7 +54,7 @@ public class PlayerMovement : NetworkedBehaviour {
         Debug.Log("Normal of the first point: " + col.contacts[0].normal);
 
         foreach (var item in col.contacts) {
-            if (item.normal == Vector3.up) {
+            if (item.normal.x != -1f) {
                 hasJumped = false;
 				break;
             }
