@@ -35,7 +35,6 @@ public class PlayerMovement : NetworkedBehaviour {
     void Jump() {
 		if ( CheckGround() ) {
 			rb.AddForce(Vector2.up * jumpMult);
-            Debug.Log("AAAA");
 		}
 	}
 
