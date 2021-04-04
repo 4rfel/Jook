@@ -25,8 +25,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1499309766544944889}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 16.433, y: 0, z: 0}
-  m_LocalScale: {x: 31.049767, y: 34.111435, z: 1.4015454}
+  m_LocalPosition: {x: 11, y: 0, z: 0}
+  m_LocalScale: {x: 21.944698, y: 22.712732, z: 1.4015454}
   m_Children: []
   m_Father: {fileID: 5636072956441823531}
   m_RootOrder: 1
@@ -381,7 +381,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5238321736018854384}
-  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7034356, w: 0.7107591}
   m_LocalPosition: {x: 0.25, y: 0, z: 0}
   m_LocalScale: {x: 1.6117773, y: 1.4190646, z: 1.4015454}
   m_Children: []
@@ -413,10 +413,10 @@ MonoBehaviour:
   m_AlphaBlendOnOverlap: 0
   m_ShadowIntensity: 0
   m_ShadowVolumeIntensity: 0
-  m_PointLightInnerAngle: 41.9
-  m_PointLightOuterAngle: 57.66
+  m_PointLightInnerAngle: 59.44
+  m_PointLightOuterAngle: 59.44
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 24.73282
+  m_PointLightOuterRadius: 16.626583
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5
@@ -671,7 +671,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2496686977988012097
 Transform:
   m_ObjectHideFlags: 0
@@ -680,8 +680,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5525495505299838013}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.208, y: 0, z: 0}
+  m_LocalScale: {x: 0.6658389, y: 1, z: 1}
   m_Children:
   - {fileID: 8299648585724801422}
   m_Father: {fileID: 664686003043019733}
@@ -812,6 +812,11 @@ PrefabInstance:
         type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1669141294770795378, guid: 505dabda13f9eea43870708f1f906534,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1669141294770795378, guid: 505dabda13f9eea43870708f1f906534,
         type: 3}
