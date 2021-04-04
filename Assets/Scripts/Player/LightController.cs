@@ -5,16 +5,16 @@ using MLAPI;
 
 public class LightController : NetworkedBehaviour {
 
-    [SerializeField] private GameObject spotlight;
-    [SerializeField] private SpriteRenderer playerRend;
-    [SerializeField] private SpriteRenderer gunRend;
+	[SerializeField] private GameObject spotlight;
+	[SerializeField] private SpriteRenderer playerRend;
+	[SerializeField] private SpriteRenderer gunRend;
 
 	private bool isLightOn;
 	private bool wasLightOn;
 
 	//  // Start is called before the first frame update
 	void Start() {
-		if ( IsLocalPlayer ) {
+		if (IsLocalPlayer) {
 			isLightOn = false;
 			wasLightOn = false;
 			playerRend.maskInteraction = SpriteMaskInteraction.None;
@@ -25,15 +25,15 @@ public class LightController : NetworkedBehaviour {
 
 	// Update is called once per frame
 	void Update() {
-		if ( IsLocalPlayer ) {
+		if (IsLocalPlayer) {
 			isLightOn = Input.GetMouseButton(1);
 		}
-		if ( wasLightOn != isLightOn )
+		if (wasLightOn != isLightOn)
 			ChangeLightState();
 	}
 
 	void ChangeLightState() {
-		if ( isLightOn ) {
+		if (isLightOn) {
 			spotlight.SetActive(true);
 			wasLightOn = true;
 		} else {

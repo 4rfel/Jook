@@ -4,12 +4,11 @@ using UnityEngine;
 using MLAPI;
 using MLAPI.NetworkedVar;
 
-public class PlayerHp : MonoBehaviour
-{
-    public NetworkedVarFloat hp = new NetworkedVarFloat(100f);
+public class PlayerHp : MonoBehaviour {
+	public NetworkedVarFloat hp = new NetworkedVarFloat(100f);
 
 
-    public void TakeDmg(float dmg) {
-        hp.Value -= dmg;
-    }
+	public void TakeDmg(float dmg) {
+		hp.Value -= dmg;
+	}
 }

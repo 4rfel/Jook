@@ -5,12 +5,12 @@ using MLAPI;
 
 public class CamController : NetworkedBehaviour {
 
-    [SerializeField] private GameObject PlayerCamObj;
+	[SerializeField] private GameObject PlayerCamObj;
 
 	// Start is called before the first frame update
 	void Start() {
 		if (IsLocalPlayer) {
-            PlayerCamObj.SetActive(true);
-        }
-    }
+			PlayerCamObj.SetActive(true);
+		}
+	}
 }
