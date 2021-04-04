@@ -1,10 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using MLAPI;
+﻿using MLAPI;
 using MLAPI.NetworkedVar;
 
-public class PlayerHp : MonoBehaviour {
+public class PlayerHp : NetworkedBehaviour {
 	public NetworkedVarFloat hp = new NetworkedVarFloat(100f);
 
 

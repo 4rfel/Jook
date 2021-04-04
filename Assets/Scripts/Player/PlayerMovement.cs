@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using MLAPI;
 
 public class PlayerMovement : NetworkedBehaviour {
@@ -41,21 +39,13 @@ public class PlayerMovement : NetworkedBehaviour {
 	bool CheckGround() {
 		RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.6f, Ground);
 
-		if (hit.collider != null) {
-			return true;
-		} else {
-			return false;
-		}
+		return (hit.collider != null);
 	}
 
 	bool CheckWall() {
 		RaycastHit2D hitRight = Physics2D.Raycast(transform.position, Vector2.right, 0.6f, Ground);
 		RaycastHit2D hitLeft = Physics2D.Raycast(transform.position, Vector2.left, 0.6f, Ground);
 
-		if (hitRight.collider != null || hitLeft.collider != null) {
-			return true;
-		} else {
-			return false;
-		}
+		return (hitRight.collider != null || hitLeft.collider != null);
 	}
 }
