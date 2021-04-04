@@ -10,12 +10,9 @@ public class LightController : NetworkedBehaviour {
 	void Start() {
 		spotlight.SetActive(false);
 		if (IsLocalPlayer) {
-			isLightOn = false;
-			wasLightOn = false;
 			playerRend.maskInteraction = SpriteMaskInteraction.None;
 			gunRend.maskInteraction = SpriteMaskInteraction.None;
 			spotlight.SetActive(true);
 		}
-
 	}
 }
