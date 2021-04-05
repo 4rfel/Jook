@@ -31,8 +31,13 @@ public class PlayerMovement : NetworkedBehaviour {
 	}
 
 	void Jump() {
-		if (CheckGround() || CheckWall()) {
+		if (CheckGround()) {
 			rb.velocity = new Vector2(rb.velocity.x, jumpMult);
+		} else if (CheckRightWall()) {
+			//rb.AddForce()
+			rb.velocity = new Vector2(rb.velocity.x - 20, jumpMult);
+		} else if (CheckLeftWall()) {
+			rb.velocity = new Vector2(rb.velocity.x + jumpMult, jumpMult);
 		}
 	}
 
@@ -42,10 +47,15 @@ public class PlayerMovement : NetworkedBehaviour {
 		return (hit.collider != null);
 	}
 
-	bool CheckWall() {
+	bool CheckRightWall() {
 		RaycastHit2D hitRight = Physics2D.Raycast(transform.position, Vector2.right, 0.6f, Ground);
+
+		return (hitRight.collider != null);
+	}
+
+	bool CheckLeftWall() {
 		RaycastHit2D hitLeft = Physics2D.Raycast(transform.position, Vector2.left, 0.6f, Ground);
 
-		return (hitRight.collider != null || hitLeft.collider != null);
+		return (hitLeft.collider != null);
 	}
 }
