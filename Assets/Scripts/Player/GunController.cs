@@ -9,7 +9,6 @@ public class GunController : NetworkedBehaviour {
 	[SerializeField] private ParticleSystem bulletParticleSystem;
 	[SerializeField] private Camera PlayerCam;
 
-
 	NetworkedVarBool shooting = new NetworkedVarBool(new NetworkedVarSettings { WritePermission = NetworkedVarPermission.OwnerOnly }, false);
 
 	float fireRate = 10f;
@@ -52,7 +51,8 @@ public class GunController : NetworkedBehaviour {
 
 	[ServerRPC]
 	void Shoot() {
-		RaycastHit2D hit = Physics2D.Raycast(bulletParticleSystem.transform.position, gunTransform.right, 25f);
+		RaycastHit2D hit = Physics2D.Raycast(bulletParticleSystem.transform.position, gunTransform.right, 17f);
+		Debug.DrawLine(gunTransform.right, gunTransform.right * 20f);
 		if (hit.collider != null) {
 
 			var player = hit.collider.GetComponent<PlayerHp>();
@@ -61,4 +61,8 @@ public class GunController : NetworkedBehaviour {
 			}
 		}
 	}
+
+	//private void OnDrawGizmos() {
+	//	Gizmos.DrawLine(bulletParticleSystem.transform.position, gunTransform.right* 17f);
+	//}
 }

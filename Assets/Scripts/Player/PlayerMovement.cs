@@ -35,9 +35,13 @@ public class PlayerMovement : NetworkedBehaviour {
 			rb.velocity = new Vector2(rb.velocity.x, jumpMult);
 		} else if (CheckRightWall()) {
 			//rb.AddForce()
-			rb.velocity = new Vector2(rb.velocity.x - 20, jumpMult);
+			rb.velocity = new Vector2(rb.velocity.x, jumpMult);
+
+			//rb.velocity = new Vector2(rb.velocity.x - 20, jumpMult);
 		} else if (CheckLeftWall()) {
-			rb.velocity = new Vector2(rb.velocity.x + jumpMult, jumpMult);
+			rb.velocity = new Vector2(rb.velocity.x, jumpMult);
+
+			//rb.velocity = new Vector2(rb.velocity.x + jumpMult, jumpMult);
 		}
 	}
 

@@ -671,7 +671,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2496686977988012097
 Transform:
   m_ObjectHideFlags: 0
@@ -810,13 +810,38 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1669141294770795378, guid: 505dabda13f9eea43870708f1f906534,
         type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1669141294770795378, guid: 505dabda13f9eea43870708f1f906534,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1669141294770795378, guid: 505dabda13f9eea43870708f1f906534,
+        type: 3}
+      propertyPath: startDelay.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1669141294770795378, guid: 505dabda13f9eea43870708f1f906534,
+        type: 3}
+      propertyPath: TrailModule.lifetime.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1669141294770795378, guid: 505dabda13f9eea43870708f1f906534,
+        type: 3}
+      propertyPath: TrailModule.sizeAffectsWidth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1669141294770795378, guid: 505dabda13f9eea43870708f1f906534,
+        type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 0.2
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1669141294770795378, guid: 505dabda13f9eea43870708f1f906534,
         type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 0.1
+      value: 0.09
       objectReference: {fileID: 0}
     - target: {fileID: 1669141294770795378, guid: 505dabda13f9eea43870708f1f906534,
         type: 3}
