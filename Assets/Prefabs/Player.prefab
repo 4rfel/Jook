@@ -447,6 +447,7 @@ GameObject:
   - component: {fileID: 7682210550804653829}
   - component: {fileID: 1443544347157733773}
   - component: {fileID: 4514433554678877290}
+  - component: {fileID: -2238744688055145064}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -656,6 +657,18 @@ MonoBehaviour:
   spotlight: {fileID: 5910478967113595609}
   playerRend: {fileID: 3701548742129289889}
   gunRend: {fileID: 7302959314708960828}
+--- !u!114 &-2238744688055145064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5344143106839810762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c16f557f94d29e24bb3719a392ad47e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5525495505299838013
 GameObject:
   m_ObjectHideFlags: 0
