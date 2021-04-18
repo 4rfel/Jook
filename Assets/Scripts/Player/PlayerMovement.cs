@@ -48,6 +48,8 @@ public class PlayerMovement : NetworkedBehaviour {
 	bool CheckGround() {
 		RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.6f, Ground);
 
+		Debug.Log(hit.collider);
+
 		return (hit.collider != null);
 	}
 

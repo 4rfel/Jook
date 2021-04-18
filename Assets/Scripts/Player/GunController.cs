@@ -14,8 +14,6 @@ public class GunController : NetworkedBehaviour {
 	[SerializeField] private GameObject bulletsObj;
 	[SerializeField] private Text bulletsTxt;
 
-
-
 	NetworkedVarBool shooting = new NetworkedVarBool(new NetworkedVarSettings { WritePermission = NetworkedVarPermission.OwnerOnly }, false);
 
 	float fireRate = 10f;
@@ -25,8 +23,8 @@ public class GunController : NetworkedBehaviour {
 
 	private ParticleSystem.EmissionModule em;
 
-	int magazineSize = 20;
-	int quantBullets = 20;
+	public int magazineSize = 20;
+	public int quantBullets = 20;
 
 	bool reloading = false;
 
@@ -45,7 +43,7 @@ public class GunController : NetworkedBehaviour {
 
 			TestShoot();
 
-			if (Input.GetKeyDown(KeyCode.R)) {
+			if ((Input.GetKeyDown(KeyCode.R) || quantBullets <= 0 ) && !reloading) {
 				IEnumerator coroutine = Reload();
 				StartCoroutine(coroutine);
 			}

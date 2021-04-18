@@ -2,6 +2,7 @@
 using MLAPI;
 using MLAPI.Transports.UNET;
 using UnityEngine.UI;
+using MLAPI.SceneManagement;
 
 public class Menu : NetworkedBehaviour {
 
@@ -9,6 +10,10 @@ public class Menu : NetworkedBehaviour {
 	[SerializeField] private GameObject cameraMenu;
 	[SerializeField] private InputField ipInputField;
 
+	public void Tutorial() {
+		NetworkingManager.Singleton.StartHost();
+		NetworkSceneManager.SwitchScene("Tutorial");
+	}
 
 	public void Host() {
 		NetworkingManager.Singleton.StartHost();
