@@ -17,14 +17,20 @@ public class PlayerHook : NetworkedBehaviour {
     const float step = 0.02f;
     const float ratio = 2f;
 
+    PlayerPause playerPause;
+
 
     void Start() {
+        playerPause = GetComponent<PlayerPause>();
         joint = GetComponent<DistanceJoint2D>();
         joint.enabled = false;
         hook.enabled = false;
     }
 
     void Update() {
+        if (playerPause.paused)
+            return;
+
         if (joint.distance > .5f) {
             joint.distance -= step;
         } else {

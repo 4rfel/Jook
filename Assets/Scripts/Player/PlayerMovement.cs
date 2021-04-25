@@ -2,24 +2,31 @@
 using MLAPI;
 
 public class PlayerMovement : NetworkedBehaviour {
-
     [SerializeField] LayerMask Ground;
 
     Rigidbody2D rb;
 
     float max_speed = 10f;
     public float jumpMult = 10;
+    PlayerPause playerPause;
 
     void Start() {
         if (IsLocalPlayer) {
+            playerPause = GetComponent<PlayerPause>();
+
             rb = GetComponent<Rigidbody2D>();
-            MovePlayer();
         }
     }
 
     void Update() {
         if (IsLocalPlayer) {
+            if (playerPause.paused) {
+                rb.velocity = new Vector2(0, rb.velocity.y);
+                return;
+            }
+
             MovePlayer();
+
 
             if (Input.GetKeyDown("space"))
                 Jump();

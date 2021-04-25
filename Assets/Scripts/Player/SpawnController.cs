@@ -13,17 +13,17 @@ public class SpawnController : NetworkedBehaviour {
         }
     }
 
-	private void Update() {
-		if (IsLocalPlayer) {
-            if((SceneManager.GetActiveScene().name == "Tutorial" && !spawned)) {
+    private void Update() {
+        if (IsLocalPlayer) {
+            if ((SceneManager.GetActiveScene().name == "Tutorial" && !spawned)) {
                 Spawn();
                 spawned = true;
-			}
+            }
             if (Input.GetKeyDown(KeyCode.Backspace)) {
                 Spawn();
             }
-		}
-	}
+        }
+    }
 
     public void Spawn() {
         GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
