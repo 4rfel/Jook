@@ -13,7 +13,7 @@ public class PlayerHook : NetworkedBehaviour {
 
 
     DistanceJoint2D joint;
-    const float distance = 100f;
+    const float distance = 17f;
     const float step = 0.02f;
     const float ratio = 2f;
 
@@ -39,34 +39,26 @@ public class PlayerHook : NetworkedBehaviour {
         }
 
 
-        if (Input.GetKeyDown(KeyCode.E)) {
+        if (Input.GetMouseButtonDown(1)) {
 
-            // RaycastHit2D hit = Physics2D.Raycast(looking.position, looking.right, distance, mask);
             RaycastHit2D hit = Physics2D.Raycast(looking.position, gun.transform.right, distance, mask);
 
-            // if (hit.collider != null && hit.collider.gameObject.GetComponent<Rigidbody2D>() != null) {
-            if (hit.collider != null) {
+            if (hit.collider != null && hit.collider.gameObject.tag == "wall") {
                 joint.enabled = true;
-                Vector2 connectPoint = hit.point - new Vector2(hit.collider.transform.position.x, hit.collider.transform.position.y);
-                connectPoint.x /= hit.collider.transform.localScale.x;
-                connectPoint.y /= hit.collider.transform.localScale.y;
 
-
-                joint.connectedAnchor = connectPoint;
+                joint.connectedAnchor = hit.point;
 
                 joint.connectedBody = hit.collider.gameObject.GetComponent<Rigidbody2D>();
-                // joint.connectedAnchor = hit.point - new Vector2(hit.collider.transform.position.x,hit.collider.transform.position.y);
-                joint.distance = Vector2.Distance(transform.position, hit.point);
+                joint.distance = Vector2.Distance(gun.transform.position, hit.point);
 
                 hook.enabled = true;
-                hook.SetPosition(0, transform.position);
+
+                hook.SetPosition(0, gun.transform.position);
                 hook.SetPosition(1, hit.point);
 
 
-                float scaleX = Vector3.Distance(transform.position, grabPos) / ratio;
-                hook.GetComponent<LineRenderer>().material.mainTextureScale = new Vector2(scaleX, 1f);
-
-
+                float scaleX = Vector3.Distance(gun.transform.position, grabPos) / ratio;
+                hook.GetComponent<LineRenderer>().material.mainTextureScale = new Vector2(scaleX, 3f);
             }
         }
 
@@ -76,11 +68,15 @@ public class PlayerHook : NetworkedBehaviour {
             hook.SetPosition(1, trans);
         }
 
-        if (Input.GetKey(KeyCode.E))
-            hook.SetPosition(0, transform.position);
+        if (Input.GetMouseButton(1)) {
+            // Debug.DrawLine(hook.GetPosition(0), hook.GetPosition(1));
+            // Debug.DrawLine(joint.connectedAnchor, joint.connectedAnchor + new Vector2(0, 2));
+
+            hook.SetPosition(0, gun.transform.position);
+        }
 
 
-        if (Input.GetKeyUp(KeyCode.E)) {
+        if (Input.GetMouseButtonUp(1)) {
             joint.enabled = false;
             hook.enabled = false;
         }

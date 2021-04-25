@@ -34,7 +34,5 @@ public class Menu : NetworkedBehaviour {
 
     }
 
-    public void Quit() {
-        Application.Quit();
-    }
+    public void Quit() => Application.Quit();
 }
