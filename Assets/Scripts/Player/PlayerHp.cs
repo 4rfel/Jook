@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerHp : NetworkedBehaviour {
 
-    public NetworkedVarFloat hp = new NetworkedVarFloat(100f);
+    NetworkedVarFloat hp = new NetworkedVarFloat(100f);
 
     [SerializeField] SpawnController spawnController;
     [SerializeField] GameObject matObj;
